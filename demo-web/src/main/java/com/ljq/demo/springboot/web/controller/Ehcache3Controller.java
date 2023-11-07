@@ -7,6 +7,7 @@ import com.ljq.demo.springboot.service.Ehcache3Service;
 import com.ljq.demo.springboot.vo.ehcache3.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,7 +32,7 @@ public class Ehcache3Controller {
      * @param noCacheBean
      * @return
      */
-    @RequestMapping(value = "noCache", method = RequestMethod.POST)
+    @PostMapping(value = "noCache")
     public ApiResult noCache(@RequestBody NoCacheBean noCacheBean) {
 
         ApiResult apiResult = null;
@@ -55,7 +56,7 @@ public class Ehcache3Controller {
      * @param cacheResultBean
      * @return
      */
-    @RequestMapping(value = "cacheResult", method = RequestMethod.POST)
+    @PostMapping(value = "cacheResult")
     public ApiResult cacheResult(@RequestBody CacheResultBean cacheResultBean) {
 
         ApiResult apiResult = null;
@@ -79,7 +80,7 @@ public class Ehcache3Controller {
      * @param cacheResultBean
      * @return
      */
-    @RequestMapping(value = "cachePut", method = RequestMethod.POST)
+    @PostMapping(value = "cachePut")
     public ApiResult cachePut(@RequestBody CachePutBean cacheResultBean) {
 
         ApiResult apiResult = null;
@@ -103,7 +104,7 @@ public class Ehcache3Controller {
      * @param cachePutBean
      * @return
      */
-    @RequestMapping(value = "cachePutValidate", method = RequestMethod.POST)
+    @PostMapping(value = "cachePutValidate")
     public ApiResult cachePutValidate(@RequestBody CachePutBean cachePutBean) {
 
         ApiResult apiResult = null;
@@ -127,7 +128,7 @@ public class Ehcache3Controller {
      * @param cacheRemoveBean
      * @return
      */
-    @RequestMapping(value = "cacheRemove", method = RequestMethod.POST)
+    @PostMapping(value = "cacheRemove")
     public ApiResult cacheRemove(@RequestBody CacheRemoveBean cacheRemoveBean) {
 
         ApiResult apiResult = null;
@@ -151,7 +152,7 @@ public class Ehcache3Controller {
      * @param cacheRemoveBean
      * @return
      */
-    @RequestMapping(value = "cacheRemoveValidate", method = RequestMethod.POST)
+    @PostMapping(value = "cacheRemoveValidate")
     public ApiResult cacheRemoveValidate(@RequestBody CacheRemoveBean cacheRemoveBean) {
 
         ApiResult apiResult = null;
@@ -175,7 +176,7 @@ public class Ehcache3Controller {
      * @param cacheRemoveAllBean
      * @return
      */
-    @RequestMapping(value = "cacheRemoveAll", method = RequestMethod.POST)
+    @PostMapping(value = "cacheRemoveAll")
     public ApiResult cacheRemoveAll(@RequestBody CacheRemoveAllBean cacheRemoveAllBean) {
 
         ApiResult apiResult = null;
@@ -199,7 +200,7 @@ public class Ehcache3Controller {
      * @param cacheRemoveAllBean
      * @return
      */
-    @RequestMapping(value = "cacheRemoveAllValidate", method = RequestMethod.POST)
+    @PostMapping(value = "cacheRemoveAllValidate")
     public ApiResult cacheRemoveAllValidate(@RequestBody CacheRemoveAllBean cacheRemoveAllBean) {
 
         ApiResult apiResult = null;

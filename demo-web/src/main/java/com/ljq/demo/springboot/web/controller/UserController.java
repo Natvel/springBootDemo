@@ -69,7 +69,7 @@ public class UserController {
      * @param params
      * @return
      */
-    @RequestMapping(value = "info/{id}",method = RequestMethod.POST)
+    @PostMapping(value = "info/{id}")
     public ApiResult info(@PathVariable("id") long id, @RequestBody Map<String, Object> params){
 
         return userService.queryList(params);
@@ -81,7 +81,7 @@ public class UserController {
      * @param userSignUpBean 注册信息
      * @return
      */
-    @RequestMapping(value = "signup", method = RequestMethod.POST)
+    @PostMapping(value = "signup")
     public ApiResultI18n signUp(@RequestBody UserSignUpBean userSignUpBean){
         ApiResultI18n apiResultI18n= null;
         try {

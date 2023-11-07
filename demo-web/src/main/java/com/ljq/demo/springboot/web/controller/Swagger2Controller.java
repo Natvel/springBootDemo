@@ -9,6 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,7 +35,7 @@ public class Swagger2Controller {
      * @param modelAnnotationBean
      * @return
      */
-    @RequestMapping(value = "modelAnnotation", method = RequestMethod.POST)
+    @PostMapping(value = "modelAnnotation")
     @ApiOperation(value = "Swagger 2 注解示范",notes = "Swagger 2 注解示范")
     public ApiResult modelAnnotation(@RequestBody ModelAnnotationBean modelAnnotationBean) {
 
