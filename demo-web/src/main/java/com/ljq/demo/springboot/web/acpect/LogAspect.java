@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import io.github.pixee.security.Filenames;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -115,7 +116,7 @@ public class LogAspect {
                     params.append("fileSize = " + multipartFile.getSize() + ";");
                     params.append("fileContentType = " + multipartFile.getContentType() + ";");
                     params.append("fieldName = " + multipartFile.getName() + ";");
-                    params.append("fileOriginalName = " + multipartFile.getOriginalFilename() + ";");
+                    params.append("fileOriginalName = " + Filenames.toSimpleFileName(multipartFile.getOriginalFilename()) + ";");
                 }
                 if (contentType != null && contentType.contains("application/json")){
                     /**
