@@ -9,6 +9,7 @@ import com.ljq.demo.springboot.common.util.OSSSingleUtil;
 import com.ljq.demo.springboot.common.util.PDFUtil;
 import com.ljq.demo.springboot.service.CommonService;
 import com.ljq.demo.springboot.vo.DownloadBean;
+import io.github.pixee.security.Filenames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -139,7 +140,7 @@ public class CommonServiceImpl implements CommonService {
     public ApiResult uploadOSS(MultipartFile file, String uploadKey) throws Exception {
 
         // 低依赖版本 oss 上传工具
-        String fileSuffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf('.'));;
+        String fileSuffix = Filenames.toSimpleFileName(file.getOriginalFilename()).substring(file.getOriginalFilename().lastIndexOf('.'));;
         String ossFileUrlSingle = null;
         ossFileUrlSingle = OSSSingleUtil.upload(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(),
                 ossConfig.getAccessKeySecret(), ossConfig.getBucketName(), ossConfig.getUrl(), file.getInputStream(),
