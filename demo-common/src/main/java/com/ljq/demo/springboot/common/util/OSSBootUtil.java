@@ -4,6 +4,7 @@ import com.aliyun.oss.ClientConfiguration;
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.common.auth.DefaultCredentialProvider;
 import com.ljq.demo.springboot.common.config.OSSConfig;
+import io.github.pixee.security.Filenames;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -37,7 +38,7 @@ public class OSSBootUtil {
         initOSS(ossConfig);
         StringBuilder fileUrl = new StringBuilder();
         try {
-            String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf('.'));
+            String suffix = Filenames.toSimpleFileName(file.getOriginalFilename()).substring(file.getOriginalFilename().lastIndexOf('.'));
             String fileName = System.currentTimeMillis() + "-" + UUID.randomUUID().toString().substring(0,18) + suffix;
             if (!fileDir.endsWith("/")) {
                 fileDir = fileDir.concat("/");
