@@ -1,5 +1,7 @@
 package com.ljq.demo.springboot.common.util;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.*;
@@ -25,7 +27,7 @@ public class FileUtil {
      * @throws Exception
      */
     public static byte[] getBytesFromURLFile(String urlText) throws Exception {
-        URL url = new URL(urlText);
+        URL url = Urls.create(urlText, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         InputStream inputStream = url.openStream();
         int n = 0;
